@@ -1,4 +1,7 @@
-function BowlingGame(scores: any) {
+export type Frame = [number, number];
+export type Game = Frame[];
+
+function BowlingGame(scores: Game) {
 	return 0;
 }
 
