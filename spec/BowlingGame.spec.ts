@@ -12,7 +12,7 @@ describe("BowlingGame calculates the correct score", () => {
 			[0,0],
 			[0,0],
 			[0,0],
-			[0,0],
+			[0,0, undefined],
 		]
         expect(BowlingGame(score)).toBe(0);
 	});
@@ -128,4 +128,22 @@ describe("BowlingGame calculates the correct score", () => {
 		];
 		expect(BowlingGame(score)).toBe(60);
 	});
+
+	// describe("on the final frame", () => {
+	// 	it("8, for a 4-4 frame", () => {
+	// 		var score: Game = [
+	// 			[0,0],
+	// 			[0,0],
+	// 			[0,0],
+	// 			[0,0],
+	// 			[0,0],
+	// 			[0,0],
+	// 			[0,0],
+	// 			[0,0],
+	// 			[0,0],
+	// 			[4,4, undefined],
+	// 		];
+	// 		expect(BowlingGame(score)).toBe(60);
+	// 	});
+	// });
 });
