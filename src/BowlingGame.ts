@@ -46,6 +46,11 @@ const getScoreForFrame = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, 
 
 const scoreLastFrame = (frame : EndFrame) => {
 	if (spare(frame)) return 10 + (frame[2] as number);
+
+	if (strike(frame)){
+		return 10 + (frame[1] as number) + (frame[2] as number);
+	}
+
 	return 0;
 }
 

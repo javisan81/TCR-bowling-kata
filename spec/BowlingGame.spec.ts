@@ -160,6 +160,22 @@ describe("BowlingGame calculates the correct score", () => {
 				[4,"/", 0],
 			];
 			expect(BowlingGame(score)).toBe(10);
-		})
+		});
+
+		it("10, for a strike and two regular rolls", () => {
+			var score: Game = [
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				["x", 8, 2],
+			];
+			expect(BowlingGame(score)).toBe(20);
+		});
 	});
 });
