@@ -1,7 +1,7 @@
 import BowlingGame, { Game } from "../src/BowlingGame";
 
 describe("BowlingGame calculates the correct score", () => {
-    it("All rolls are 0", () => {
+    it("0, when all rolls are 0", () => {
 		var score: Game = [
 			[0,0],
 			[0,0],
@@ -17,7 +17,7 @@ describe("BowlingGame calculates the correct score", () => {
         expect(BowlingGame(score)).toBe(0);
 	});
 	
-	it("All rolls are 9", () => {
+	it("90, when all rolls are 9", () => {
 		var score: Game = [
 			[9,0],
 			[1,8],
@@ -29,7 +29,23 @@ describe("BowlingGame calculates the correct score", () => {
 			[7,2],
 			[8,1],
 			[0,9],
-		]
+		];
         expect(BowlingGame(score)).toBe(90);
+	});
+
+	it("23, when a spare is followed by a 4-5 frame", () => {
+		var score: Game = [
+			[0,"/"],
+			[4,5],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+		];
+		expect(BowlingGame(score)).toBe(23);
 	})
 });
