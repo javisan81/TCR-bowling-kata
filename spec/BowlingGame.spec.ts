@@ -63,5 +63,21 @@ describe("BowlingGame calculates the correct score", () => {
 			[0,0],
 		];
 		expect(BowlingGame(score)).toBe(28);
-	})
+	});
+
+	it("30, when a strike is followed by a spare", () => {
+		var score: Game = [
+			["x", undefined],
+			[4,"/"],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+		];
+		expect(BowlingGame(score)).toBe(30);
+	});
 });
