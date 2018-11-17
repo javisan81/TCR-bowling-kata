@@ -17,15 +17,14 @@ const getScoreForFrame = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, 
 		return scoreLastFrame(frame as EndFrame);
 	}
 
-	let total: number = 0;
 	if(regularFrame(frame)){
 		// Regular frame
 		return ((frame[0] as number) + (frame[1] as number));
 	} else if (spare(frame)) {
 		// Spare
-		total += 10;
-		total += (nextFrame[0] as number);
+		return 10 + (nextFrame[0] as number);
 	} else {
+		let total = 0;
 		// Strike
 		total += 10;
 		if(strike(nextFrame)){
@@ -41,8 +40,8 @@ const getScoreForFrame = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, 
 		} else {
 			total += (nextFrame[0] as number) + (nextFrame[1] as number);
 		}
+		return total;
 	}
-	return total;
 }
 
 const scoreLastFrame = (frame : EndFrame) => {
