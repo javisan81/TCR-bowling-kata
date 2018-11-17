@@ -5,16 +5,18 @@ export type Game = (Frame | EndFrame)[];
 function BowlingGame(game: Game) {
 	let total = 0;
 	game.forEach((frame, index) => {
-		total += getScoreForFrame(game, index);
+		const nextFrame = game[index+1],
+			  nextnextFrame = game[index+2];
+		total += getScoreForFrame(frame, nextFrame, nextnextFrame);
 	});
 	return total;
 }
  
-const getScoreForFrame = (game: Game, index: number) => {
-	if(typeof game[index][2] === "number"){
-		return scoreLastFrame(game, index);
+const getScoreForFrame = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, nextnextFrame: Frame | EndFrame) => {
+	if(typeof frame[2] === "number"){
+		return scoreLastFrame(frame as EndFrame);
 	}
-	const frame: Frame = game[index] as Frame;
+
 	let total: number = 0;
 	if(regularFrame(frame)){
 		// Regular frame
@@ -22,30 +24,28 @@ const getScoreForFrame = (game: Game, index: number) => {
 	} else if (spare(frame)) {
 		// Spare
 		total += 10;
-		total += (game[index+1][0] as number);
+		total += (nextFrame[0] as number);
 	} else {
 		// Strike
 		total += 10;
-		if(strike(game[index+1])){
+		if(strike(nextFrame)){
 			total += 10;
-			if(strike(game[index+2]))
+			if(strike(nextnextFrame))
 			{
 				total += 10;
 			} else {
-				total += (game[index+2][0] as number);
+				total += (nextnextFrame[0] as number);
 			}
-		} else if (spare(game[index+1])){
+		} else if (spare(nextFrame)){
 			total += 10;
 		} else {
-			total += (game[index+1][0] as number) + (game[index+1][1] as number);
+			total += (nextFrame[0] as number) + (nextFrame[1] as number);
 		}
 	}
 	return total;
 }
 
-const scoreLastFrame = (game: Game, index: number) => {
-	const frame: EndFrame = (game[index] as EndFrame);
-	
+const scoreLastFrame = (frame : EndFrame) => {
 	if (spare(frame)) return 10 + (frame[2] as number);
 	return 0;
 }
