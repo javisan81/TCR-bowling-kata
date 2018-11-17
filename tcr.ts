@@ -22,8 +22,10 @@ new Promise(function (resolve, reject) {
 .then((msg) => console.log(msg))
 .then(() => {
 	return new Promise(function (resolve, reject) {
-		var child = spawn(`git add * && git commit -m "tcr"`, []);
-	
+		var add = spawn.sync(`git add *`, []);
+		
+		var child = spawn(`git commit -m "tcr"`, []);
+
 		child.stdout.on('data', function (data: any) {
 			process.stdout.write(data);
 		});
