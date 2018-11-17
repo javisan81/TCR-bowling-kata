@@ -1,5 +1,5 @@
 export type Frame = [number | "x", number | "/" | undefined];
-export type EndFrame = [number | "x", number | "|", number];
+export type EndFrame = [number | "x", number | "|", number | undefined];
 export type Game = (Frame | EndFrame)[];
 
 function BowlingGame(game: Game) {
@@ -11,6 +11,9 @@ function BowlingGame(game: Game) {
 }
 
 const getScoreForFrame = (game: Game, index: number) => {
+	if(game[index][2]){
+		return scoreLastFrame(game, index);
+	}
 	const frame: Frame = game[index] as Frame;
 	let total: number = 0;
 	if(regularFrame(frame)){
@@ -39,6 +42,8 @@ const getScoreForFrame = (game: Game, index: number) => {
 	}
 	return total;
 }
+
+const scoreLastFrame = (game: Game, index: number) => {return 0;}
 
 export default BowlingGame;
 
