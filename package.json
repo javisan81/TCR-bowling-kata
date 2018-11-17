@@ -1,0 +1,21 @@
+{
+  "name": "bowling",
+  "version": "1.0.0",
+  "description": "bowling kata",
+  "main": "index.js",
+  "author": "tdurtschi",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@types/jasmine": "^3.0.0",
+    "@types/node": "^10.12.9",
+    "cross-spawn": "^6.0.5",
+    "jasmine": "^3.3.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.6"
+  },
+  "scripts": {
+    "test": "ts-node node_modules\\jasmine\\bin\\jasmine",
+    "tcr": "ts-node .\\tcr.ts"
+  }
+}
