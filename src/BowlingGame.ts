@@ -20,7 +20,7 @@ const getScoreForFrame = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, 
 	let total: number = 0;
 	if(regularFrame(frame)){
 		// Regular frame
-		total += ((frame[0] as number) + (frame[1] as number));
+		return ((frame[0] as number) + (frame[1] as number));
 	} else if (spare(frame)) {
 		// Spare
 		total += 10;
