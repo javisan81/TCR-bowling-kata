@@ -45,7 +45,6 @@ const getScoreForFrame = (game: Game, index: number) => {
 
 const scoreLastFrame = (game: Game, index: number) => {
 	const frame = game[index];
-	if(regularFrame) return ((frame[0] as number) + (frame[1] as number));
 
 	return 0;
 }
