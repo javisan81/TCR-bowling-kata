@@ -129,21 +129,37 @@ describe("BowlingGame calculates the correct score", () => {
 		expect(BowlingGame(score)).toBe(60);
 	});
 
-	// describe("on the final frame", () => {
-	// 	it("8, for a 4-4 frame", () => {
-	// 		var score: Game = [
-	// 			[0,0],
-	// 			[0,0],
-	// 			[0,0],
-	// 			[0,0],
-	// 			[0,0],
-	// 			[0,0],
-	// 			[0,0],
-	// 			[0,0],
-	// 			[0,0],
-	// 			[4,4, undefined],
-	// 		];
-	// 		expect(BowlingGame(score)).toBe(60);
-	// 	});
-	// });
+	describe("on the final frame", () => {
+		it("8, for a 4-4 frame", () => {
+			var score: Game = [
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[4,4, undefined],
+			];
+			expect(BowlingGame(score)).toBe(8);
+		});
+
+		it("10, for a spare and a gutter ball", () => {
+			var score: Game = [
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[4,"/", undefined],
+			];
+			//expect(BowlingGame(score)).toBe(8);
+		})
+	});
 });
