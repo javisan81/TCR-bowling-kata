@@ -11,6 +11,7 @@ function BowlingGame(game: Game) {
 }
  
 const getScoreForFrame = (game: Game, index: number) => {
+	console.log(game[index][2]);
 	if(game[index][2]){
 		return scoreLastFrame(game, index);
 	}
