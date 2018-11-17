@@ -18,11 +18,12 @@ function BowlingGame(game: Game) {
 			total += 10;
 			if(strike(game[index+1])){
 				total += 10;
-			// 	if(strike(game[index+2]))
-			// 	{
-			// 		total += 10;
-			// 	}
-				total += (game[index+2][0] as number);
+				if(strike(game[index+2]))
+				{
+					total += 10;
+				} else {
+					total += (game[index+2][0] as number);
+				}
 			} else if (spare(game[index+1])){
 				total += 10;
 			} else {

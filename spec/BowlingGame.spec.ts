@@ -112,4 +112,20 @@ describe("BowlingGame calculates the correct score", () => {
 		];
 		expect(BowlingGame(score)).toBe(51);
 	});
+
+	it("60, for a triple", () => {
+		var score: Game = [
+			["x", undefined],
+			["x", undefined],
+			["x", undefined],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+		];
+		expect(BowlingGame(score)).toBe(60);
+	});
 });
