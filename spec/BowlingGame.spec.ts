@@ -30,6 +30,6 @@ describe("BowlingGame calculates the correct score", () => {
 			[8,1],
 			[0,9],
 		]
-        //expect(BowlingGame(score)).toBe(0);
+        expect(BowlingGame(score)).toBe(90);
 	})
 });
