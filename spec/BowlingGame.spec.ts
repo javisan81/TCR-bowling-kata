@@ -47,5 +47,21 @@ describe("BowlingGame calculates the correct score", () => {
 			[0,0],
 		];
 		expect(BowlingGame(score)).toBe(23);
+	});
+
+	it("29, when a strike is followed by a 4-5 frame", () => {
+		var score: Game = [
+			["x", undefined],
+			[4,5],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+		];
+		expect(BowlingGame(score)).toBe(28);
 	})
 });
