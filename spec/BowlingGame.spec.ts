@@ -81,7 +81,7 @@ describe("BowlingGame calculates the correct score", () => {
 		expect(BowlingGame(score)).toBe(30);
 	});
 
-	it("35, for a triple", () => {
+	it("35, for a double followed by 1-1", () => {
 		var score: Game = [
 			["x", undefined],
 			["x", undefined],
@@ -95,5 +95,21 @@ describe("BowlingGame calculates the correct score", () => {
 			[0,0],
 		];
 		expect(BowlingGame(score)).toBe(35);
-	})
+	});
+
+	it("51, for a double followed by 1-spare", () => {
+		var score: Game = [
+			["x", undefined],
+			["x", undefined],
+			[1, "/"],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+			[0,0],
+		];
+		expect(BowlingGame(score)).toBe(51);
+	});
 });
