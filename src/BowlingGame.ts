@@ -11,8 +11,7 @@ function BowlingGame(game: Game) {
 }
  
 const getScoreForFrame = (game: Game, index: number) => {
-	console.log(game[index]);
-	if(game[index][2]){
+	if(typeof game[index][2] === "number"){
 		return scoreLastFrame(game, index);
 	}
 	const frame: Frame = game[index] as Frame;
@@ -45,8 +44,9 @@ const getScoreForFrame = (game: Game, index: number) => {
 }
 
 const scoreLastFrame = (game: Game, index: number) => {
-	const frame = game[index];
-
+	const frame: EndFrame = (game[index] as EndFrame);
+	
+	if (spare(frame)) return 10 + (frame[2] as number);
 	return 0;
 }
 

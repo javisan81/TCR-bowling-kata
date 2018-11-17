@@ -157,9 +157,9 @@ describe("BowlingGame calculates the correct score", () => {
 				[0,0],
 				[0,0],
 				[0,0],
-				[4,"/", undefined],
+				[4,"/", 0],
 			];
-			//expect(BowlingGame(score)).toBe(8);
+			expect(BowlingGame(score)).toBe(10);
 		})
 	});
 });
