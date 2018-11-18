@@ -28,6 +28,9 @@ const getScoreForFrame = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, 
 		let total = 0;
 		total += 10;
 		if(strike(nextFrame)){
+			if(lastFrame(nextFrame)){
+				return 10 + strikeOnLastFrameScore(nextFrame as EndFrame);
+			}
 			total += 10;
 			if(strike(nextnextFrame))
 			{
@@ -42,6 +45,10 @@ const getScoreForFrame = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, 
 		}
 		return total;
 	}
+}
+
+const strikeOnLastFrameScore = (frame : EndFrame) => {
+	if(frame[0] === "x") return 10 + (frame[1] as number);
 }
 
 const scoreLastFrame = (frame : EndFrame) => {
