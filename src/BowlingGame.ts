@@ -23,11 +23,11 @@ const getScoreForFrame = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, 
 		return 10 + (nextFrame[0] as number);
 	} else {
 		// Strike
-		return scoreStrike(frame, nextFrame, nextnextFrame);
+		return scoreStrike(nextFrame, nextnextFrame);
 	}
 }
 
-const scoreStrike = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, nextnextFrame: Frame | EndFrame) => {
+const scoreStrike = (nextFrame: Frame | EndFrame, nextnextFrame: Frame | EndFrame) => {
 	let total = 0;
 	total += 10;
 	if(strike(nextFrame)){
@@ -37,9 +37,9 @@ const scoreStrike = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, nextn
 		total += 10;
 		if(strike(nextnextFrame))
 		{
-			total += 10;
+			return 30;
 		} else {
-			total += (nextnextFrame[0] as number);
+			return 20 + (nextnextFrame[0] as number);
 		}
 	} else if (spare(nextFrame)){
 		total += 10;
