@@ -24,8 +24,8 @@ const getScoreForFrame = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, 
 		// Spare
 		return 10 + (nextFrame[0] as number);
 	} else {
-		let total = 0;
 		// Strike
+		let total = 0;
 		total += 10;
 		if(strike(nextFrame)){
 			total += 10;
@@ -56,6 +56,6 @@ const scoreLastFrame = (frame : EndFrame) => {
 
 export default BowlingGame;
 
-const regularFrame = (frame: Frame | EndFrame) => typeof frame[0] === "number" && typeof frame[1] === "number";
+const regularFrame = (frame: Frame | EndFrame) => typeof frame[0] === "number" && typeof frame[1] === "number" && typeof frame[2] !== "number";
 const strike = (frame: Frame | EndFrame) => frame[0] === "x";
 const spare = (frame: Frame | EndFrame) => frame[1] === "/";

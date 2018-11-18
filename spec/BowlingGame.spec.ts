@@ -194,5 +194,21 @@ describe("BowlingGame calculates the correct score", () => {
 			];
 			expect(BowlingGame(score)).toBe(30);
 		});
+
+		it("60, for a strike and two 10 rolls after a strike", () => {
+			var score: Game = [
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				[0,0],
+				["x", undefined],
+				["x", 10, 10],
+			];
+			//expect(BowlingGame(score)).toBe(60);
+		});
 	});
 });
