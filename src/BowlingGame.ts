@@ -29,7 +29,7 @@ const getScoreForFrame = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, 
 		total += 10;
 		if(strike(nextFrame)){
 			if(lastFrame(nextFrame)){
-				return 10 + strikeOnLastFrameScore(nextFrame as EndFrame);
+				return 20 + (nextFrame[1] as number);
 			}
 			total += 10;
 			if(strike(nextnextFrame))
