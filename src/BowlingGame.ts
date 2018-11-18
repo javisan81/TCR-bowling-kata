@@ -13,7 +13,7 @@ function BowlingGame(game: Game) {
 }
  
 const getScoreForFrame = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, nextnextFrame: Frame | EndFrame) => {
-	if(typeof frame[2] === "number"){
+	if(lastFrame(frame)){
 		return scoreLastFrame(frame as EndFrame);
 	}
 
@@ -56,6 +56,7 @@ const scoreLastFrame = (frame : EndFrame) => {
 
 export default BowlingGame;
 
-const regularFrame = (frame: Frame | EndFrame) => typeof frame[0] === "number" && typeof frame[1] === "number" && typeof frame[2] !== "number";
+const lastFrame = (frame: Frame | EndFrame) => typeof frame[2] !== "undefined";
+const regularFrame = (frame: Frame | EndFrame) => typeof frame[0] === "number" && typeof frame[1] === "number";
 const strike = (frame: Frame | EndFrame) => frame[0] === "x";
 const spare = (frame: Frame | EndFrame) => frame[1] === "/";
