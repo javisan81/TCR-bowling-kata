@@ -208,7 +208,7 @@ describe("BowlingGame calculates the correct score", () => {
 				["x", undefined],
 				["x", 10, 10],
 			];
-			//expect(BowlingGame(score)).toBe(60);
+			expect(BowlingGame(score)).toBe(60);
 		});
 	});
 });
