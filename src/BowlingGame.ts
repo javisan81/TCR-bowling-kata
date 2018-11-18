@@ -28,25 +28,19 @@ const getScoreForFrame = (frame: Frame | EndFrame, nextFrame: Frame | EndFrame, 
 }
 
 const scoreStrike = (nextFrame: Frame | EndFrame, nextnextFrame: Frame | EndFrame) => {
-	let total = 0;
-	total += 10;
 	if(strike(nextFrame)){
 		if(lastFrame(nextFrame)){
 			return 20 + (nextFrame[1] as number);
-		}
-		total += 10;
-		if(strike(nextnextFrame))
-		{
+		} else if(strike(nextnextFrame)) {
 			return 30;
 		} else {
 			return 20 + (nextnextFrame[0] as number);
 		}
 	} else if (spare(nextFrame)){
-		total += 10;
+		return 20;
 	} else {
-		total += (nextFrame[0] as number) + (nextFrame[1] as number);
+		return 10 + (nextFrame[0] as number) + (nextFrame[1] as number);
 	}
-	return total;
 }
 
 const scoreLastFrame = (frame : EndFrame) => {
