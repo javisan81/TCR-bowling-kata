@@ -162,7 +162,6 @@ describe("BowlingGame calculates the correct score", () => {
 			expect(BowlingGame(score)).toBe(10);
 		});
 
-		
 		it("10, for a spare and a 10 roll", () => {
 			var score: Game = [
 				[0,0],

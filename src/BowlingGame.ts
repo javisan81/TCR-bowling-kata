@@ -53,9 +53,9 @@ const scoreLastFrame = (frame : EndFrame) => {
 	return 0;
 }
 
-export default BowlingGame;
-
 const lastFrame = (frame: Frame | EndFrame) => typeof frame[2] !== "undefined";
 const regularFrame = (frame: Frame | EndFrame) => typeof frame[0] === "number" && typeof frame[1] === "number";
 const strike = (frame: Frame | EndFrame) => frame[0] === "x";
 const spare = (frame: Frame | EndFrame) => frame[1] === "/";
+
+export default BowlingGame;
